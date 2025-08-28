@@ -1,0 +1,75 @@
+site_name: 2025年暑假课程笔记
+theme:
+  name: material
+  icon:
+    logo: material/cat # 页面左上角的图标
+  language: zh # 语言
+
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/toggle-switch 
+        name: 天黑请闭眼
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: 天亮请睁眼
+
+  features:
+    - navigation.tabs # 开启标签页导航栏
+    - navigation.top # 开启顶部导航栏
+    - search.highlight # 开启搜索框高亮
+  
+  nav:
+    - 前言: docs\index.md
+    - The missing semester:
+      - 1-Shell: docs/the missing semester/Shell.md 
+      - 2-Data Wrangling: docs/the missing semester/Data_wrangling.md
+      - 3-Vim: docs/the missing semester/Vim.md
+      - 4-Git: docs/the missing semester/Git.md
+      - 5-Debugging&Profiling: docs/the missing semester/Debugging&Profiling.md
+      - 6-Metaprogramming: docs/the missing semester/Metaprogramming.md
+      - 7-Security and Cryptography: docs/the missing semester/Security and Cryptography.md
+      - 8-MKDocs: docs/the missing semester/MKDocs.md
+    - CS61A:
+      - 1: docs/CS61A/python.md
+      - 2: docs/CS61A/02-python.md
+      - 3: docs/CS61A/03-python.md
+      - 4: docs/CS61A/04-python.md
+      - 5: docs/CS61A/05-python.md
+      - 6: docs/CS61A/06-python.md
+      - 7: docs/CS61A/07-python.md
+      - 8: docs/CS61A/08-scheme.md
+      - 9: docs/CS61A/09-scheme.md
+      - 10: docs/CS61A/10-SQL.md
+  
+markdown_extensions:
+  - admonition
+  - codehilite:
+      use_pygments: true
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+      toc_depth: 2-4
+  - tables
+  - attr_list
+  - abbr
+  - def_list
+  - pymdownx.mark
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.tabbed
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js

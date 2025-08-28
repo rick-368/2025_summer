@@ -1,51 +1,47 @@
-### Debugging and Profiling
-#### Debugging
+
+# Debugging & Profiling
+## Debugging
 - Printf Debugging
 - logging
-##### debuggers
-###### pdb
+### pdb
 - Python自带的调试器
 - 启动方式：在代码中添加`import pdb; pdb.set_trace()`，然后运行程序，程序会自动暂停并进入pdb调试环境
 - 命令：
-  - `l(ist)`: 显示当前行的代码
-  - `n(ext)`: 单步执行
-  - `s(tep)`: 进入函数
-  - `c(ontinue)`: 继续执行
-  - `w(here)`: 显示当前位置
-  - `p(rint) var`: 打印变量的值(locals()打印所有局部变量)
-  - `h(elp)`: 显示帮助信息
-  - `q(uit)`: 退出调试环境
-###### 其他调试器
-- 对于更底层的编程语言，比如C、C++、Java等，可以使用gdb(改进版pwndbg)，lldb等调试器
-##### 静态分析（以python为例）
+    - `l(ist)`: 显示当前行的代码
+    - `n(ext)`: 单步执行
+    - `s(tep)`: 进入函数
+    - `c(ontinue)`: 继续执行
+    - `w(here)`: 显示当前位置
+    - `p(rint) var`: 打印变量的值(locals()打印所有局部变量)
+    - `h(elp)`: 显示帮助信息
+    - `q(uit)`: 退出调试环境
+### 静态分析（以python为例）
 - pyflakes: 检查Python代码中的错误，比如语法错误、变量未定义等
 - mypy：类型检查器，可以检测到变量类型错误
 - pylint：检查代码风格、可读性、性能等问题
-#### Profiling
-##### time profiling
-- Printf Profiling
-  - eg:`print(time.time() - start_time)`
+## Profiling
+### time profiling
+- Printf Profiling  
+ eg:`print(time.time() - start_time)`
 - 执行时间（wall clock time）也可能会误导您，因为您的电脑可能也在同时运行其他进程，也可能在此期间发生了等待。 对于工具来说，需要区分真实时间、用户时间和系统时间。通常来说，用户时间 + 系统时间代表了您的进程所消耗的实际 CPU 时间。
-- 真实时间 Real - 从程序开始到结束流失掉的真实时间，包括其他进程的执行时间以及阻塞消耗的时间（例如等待 I/O 或网络）；
-- 用户时间 User - CPU 执行用户代码所花费的时间；
+- 真实时间 Real - 从程序开始到结束流失掉的真实时间，包括其他进程的执行时间以及阻塞消耗的时间（例如等待 I/O 或网络）。
+- 用户时间 User - CPU 执行用户代码所花费的时间。
 - 系统时间 Sys - CPU 执行系统内核代码所花费的时间。
-##### profilers
-###### CPU
-###### tracing profiler
+### tracing profiler
 - 追踪分析器 会记录程序的每一次函数调用，并记录函数的执行时间。
-###### sampling profiler
+### sampling profiler
 - 采样分析器 也称为定时分析器，它会定期记录程序的执行情况，并统计函数的执行时间。
 - 采样分析器的优点是可以减少对程序的影响，因为它不会记录所有函数调用，只会记录一部分函数调用。
-###### memory
+### memory rofiler
 - 内存分析器 用于分析程序的内存使用情况，包括内存分配、释放、泄漏等。
 - eg:`memory_profiler` `Valgrind`
-###### 事件分析
+### 事件分析
 - 事件分析器 用于分析程序的事件，包括程序启动、退出、异常、输入输出等。
 - eg:`perf` 可以报告不佳的缓存局部性（poor cache locality）、大量的页错误（page faults）或活锁（livelocks）。
-###### 可视化
+### 可视化
 - 图形化分析器 用于可视化分析结果，包括火焰图、热图等。
 - eg:`pycallgraph`
-###### 资源监控
+### 资源监控
 - 资源监控器 用于监控程序的资源使用情况，包括 CPU、内存、网络、磁盘等。
 - 通用监控 - 最流行的工具要数 htop, 了，它是 top 的改进版。htop 可以显示当前运行进程的多种统计信息。htop 有很多选项和快捷键，常见的有：<F6> 进程排序、 t 显示树状结构和 h 打开或折叠线程。 还可以留意一下 glances ，它的实现类似但是用户界面更好。如果需要合并测量全部的进程， dstat 是也是一个非常好用的工具，它可以实时地计算不同子系统资源的度量数据，例如 I/O、网络、 CPU 利用率、上下文切换等等；
 - I/O 操作 - iotop 可以显示实时 I/O 占用信息而且可以非常方便地检查某个进程是否正在执行大量的磁盘读写操作；

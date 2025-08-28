@@ -1,8 +1,8 @@
-### SQL
+# SQL
 - SQL是一种数据库管理系统，用于管理数据库，是一种声明式编辑语言。
   - 声明式：SQL语言的核心思想是声明式，即告诉数据库应该做什么，而不是如何做。
-#### SQL基础语法
-##### 创建/删除数据库新表
+## SQL基础语法
+### 创建/删除数据库新表
 - select语句:用于创建新表或从已有表中检索数据。
 - 语法：select语句包括一个以逗号分隔的列描述列表。列描述是一个表达式，可选择性加上名称:`select [expression] as [column_name], [expression] as [column_name],  `
 - select语句还有许多子句，`from`子句指定要从哪个表中检索数据，`where`子句指定过滤条件，`order by`子句指定排序条件。
@@ -22,7 +22,7 @@ create table numbers (n UNIQUE, note); -- 唯一约束
 create table numbers (n , note DEFAULT 'unknown'); -- 默认值约束
 ```
 - 删除表：`drop table (if exists) table_name `
-#### 表的连接
+## 表的连接
 - select语句可以连接多个表，语法为`select column_name from table1, table2 where condition`。
 - 连接的表必须具有相同的列数和数据类型。
 - 连接的表可以有不同的列名，但必须具有相同的数据类型。
@@ -32,7 +32,7 @@ create table numbers (n , note DEFAULT 'unknown'); -- 默认值约束
 create table table_name as
 select a.column1, b.column2 from table1 as a, table1 as b where a.id = b.id;
 ```
-#### 数字表达式
+## 数字表达式
 - SQL支持常见的数学表达式，也有许多内置函数：
   - 算术运算符：`+ - * / %`
   - 位运算符：`& | ^ ~ << >>`
@@ -55,7 +55,7 @@ select avg(num), char from ex;
 > 8.75|a
 ```
 
-#### 字符串表达式
+## 字符串表达式
 - SQL支持字符串表达式，包括字符串连接、比较、匹配、替换、提取子串等。
 - 字符串连接：`||`
 ```sql
@@ -67,7 +67,7 @@ select 'Hello, ' || 'World';
 select substr('Hello World', 6, 5);
 > 'World'
 ```
-#### 分组
+## 分组
 - SQL支持分组，可以对结果集进行分组，并对分组进行聚合操作。
 - 分组的语法为`group by column_name`（也可以对多列进行分组），聚合的语法为`select column_name, aggregate_function(column_name) from table_name group by column_name`。
 ```sql
@@ -91,13 +91,13 @@ select num, max(char) from ex group by num;
 select num, count(*) from ex group by num having count(*) > 2;
 5|3
 ```
-#### 更改表
+## 更改表
 - SQL支持对表进行插入、更新、删除操作。
 - 插入：`insert into table_name (column1, column2,...) values (value11, value12, ...) ,(value21, value22, ...)...`
 - 更新：`update table_name set column1 = value1, column2 = value2,... where condition`
 - 删除：`delete from table_name where condition`
 - 注意：更新和删除操作必须有where子句，否则会对整个表进行操作。
-#### Python中的SQL
+## Python中的SQL
 - 在Python中，可以使用`sqlite3`模块来连接到SQLite数据库，并执行SQL语句。
 ```python
 import sqlite3

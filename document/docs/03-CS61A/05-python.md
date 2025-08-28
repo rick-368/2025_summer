@@ -1,5 +1,5 @@
-### 类
-#### 自建类
+# 类
+## 自建类
 - 在Python中，我们可以定义自己的类，来表示我们需要的数据结构。
 - 一个类语句以`class`关键字开始，后面跟着类的名称，然后是类的属性和方法。
 - `__init__`方法是类的构造函数，它会在类的实例化时自动调用。
@@ -51,7 +51,7 @@ c = a
 print(a is b) # False
 print(a is c) # True
 ```
-#### 继承
+## 继承
 - `class SubClass(ParentClass):`通过此类语句创建的子类可以继承父类的属性和方法，也可以添加自己的属性和方法，或者覆盖父类的方法。
 ```python
 class CheckingAccount(Account):
@@ -61,7 +61,7 @@ class CheckingAccount(Account):
         return Account.withdraw(self, amount + self.withdraw_fee)
 ```
 - 多重继承：`class SubClass(Parent1, Parent2, Parent3):`，当父类有同名属性或方法时，子类会继承第一个父类中的属性或方法。
-#### 链表类
+## 链表类
 - 在python中，链表是通过创建类来实现的
 ```python
 class Link:
@@ -92,7 +92,7 @@ def add(s,v):
     elif s.data<v:
         add(s.rest,v)
 ```
-#### 树类
+## 树类
 - 树也可以用类来实现。
 ```python
 class Tree:
@@ -105,7 +105,7 @@ class Tree:
 - 在类中可以定义树的属性，比如打印的方法等等。
 ---
 
-#### 字符串转换
+## 字符串转换
 - Python 规定所有的对象都应该生成两个不同的字符串表示：一种是人类可读的文本，另一种是 Python 可解释的表示式。字符串的构造函数，即 str，返回一个人类可读的字符串,即调用print函数时看到的字符串。如果可能，repr 函数返回一个 Python 可解释的表达式，该表达式的求值结果与原对象相同。
 - 对于表达式的值调用 repr 的结果就是 Python 在交互式会话中所打印的内容。
 ```python
@@ -159,11 +159,11 @@ def repr(obj):
 >>> half.__str__()
 '1/2'
 ```
-#### 字符串插值
+## 字符串插值
 - f-string 是Python的一种字符串插值方式。它允许在字符串中嵌入变量，并在运行时计算它们的值。
 - 语法：`f"string {expression} string"`
 ---
-#### 类的特殊方法
+## 类的特殊方法
 - 以双下划线开头和结尾的方法，它们是Python的内置函数，与内置的对象系统进行交互。
     - `__init__()`方法，它在对象被创建时被调用。
     - `__repr__()`方法，它返回一个字符串，该字符串可以被用作该对象的表示式,在交互式环境显示其值的时候自动调用。

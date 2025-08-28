@@ -1,4 +1,4 @@
-### Python补充
+# Python 补充
 - 对于列表，如果想要复制一个列表，可以用 `list2 = list1[:]`, 或者 `list2 = list(list1)`,而`list2 = list1`只是将 `list1` 的引用赋值给 `list2`，并没有复制 `list1` 的内容,即`list2` 和 `list1` 指向同一个列表。
 - 列表切片
 ```python

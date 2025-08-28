@@ -1,5 +1,5 @@
-### 递归
-###### 一个简单的例子
+# 递归
+## 一个简单的例子
 
 ```python
 def print_sums(x):
@@ -19,7 +19,7 @@ print_sums(1)(3)(5)
 9
 ```
 
-#### 递归函数
+## 递归函数
 - 是一个主体直接或间接调用自身的函数。
 eg:
 ```python
@@ -29,7 +29,7 @@ def factorial(n):
     else:
         return n * factorial(n-1)
 ```
-#### 相互递归
+## 相互递归
 - 一个函数调用另一个函数，而该函数又调用了它自己。
 eg:
 ```python
@@ -56,7 +56,7 @@ def luhn_sum_double(n):
     else:
         return luhn_sum(all_but_last) + luhn_digit
 ```
-#### 树状递归
+## 树状递归
 - 一个函数调用自身多次，每次递归深度增加一层。
 - 如斐波那契数列，阶乘，汉诺塔等。
 eg：
@@ -70,7 +70,7 @@ def fib(n):
     else:
         return fib(n-1) + fib(n-2)
 ```
--Counting Partitions
+- Counting Partitions
 ```python
 def count_partitions(n, k):
     if n == 0:
