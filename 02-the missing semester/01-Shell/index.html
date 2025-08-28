@@ -1,0 +1,1436 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../01-markdown/markdown_basic_grammar/">
+      
+      
+        <link rel="next" href="../02-Data_wrangling/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Shell - 2025年暑假课程笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shell_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="2025年暑假课程笔记" class="md-header__button md-logo" aria-label="2025年暑假课程笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            2025年暑假课程笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shell
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="天黑请闭眼"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="天黑请闭眼" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="天亮请睁眼"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="天亮请睁眼" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  前言
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-markdown/markdown_basic_grammar/" class="md-tabs__link">
+          
+  
+  
+  01 markdown
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  02 the missing semester
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-CS61A/01-python/" class="md-tabs__link">
+          
+  
+  
+  03 CS61A
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="2025年暑假课程笔记" class="md-nav__button md-logo" aria-label="2025年暑假课程笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    2025年暑假课程笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    前言
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    01 markdown
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            01 markdown
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-markdown/markdown_basic_grammar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第一标题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    02 the missing semester
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            02 the missing semester
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Shell
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shell
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shell_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用Shell命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      输入输出重定向
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      脚本
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他shell工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令行环境
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      终端复用器tmux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      别名
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dotflies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dotflies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-Data_wrangling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Wrangling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-Vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-Debugging%26Profiling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging &amp; Profiling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-Metaprogramming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metaprogramming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-Security%20and%20Cryptography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security and Cryptography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-MKDoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MKDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    03 CS61A
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            03 CS61A
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/01-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/02-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    递归
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/03-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    序列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/04-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    迭代器与生成器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/05-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    类
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/06-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效率提升与异常处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/07-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python 补充
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/08-scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheme 基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/09-scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    scheme 进阶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-CS61A/10-SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shell_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用Shell命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      输入输出重定向
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      脚本
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他shell工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令行环境
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      终端复用器tmux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      别名
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dotflies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dotflies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h1>
+<h2 id="shell_1">常用Shell命令<a class="headerlink" href="#shell_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>echo</code>：打印字符串</li>
+<li><code>cd</code>：切换目录(<code>cd..</code>表示返回上一级目录, <code>cd /</code>表示切换到根目录, <code>cd ~</code>表示切换到用户主目录, <code>cd -</code>表示切换到上一次所在目录)   </li>
+<li><code>ls</code>：列出目录内容</li>
+<li><code>tree</code>：以树状图列出目录内容</li>
+<li><code>pwd</code>：打印当前目录路径</li>
+<li><code>mkdir</code>：创建目录</li>
+<li><code>mv</code>：移动或重命名文件或目录</li>
+<li><code>rm</code>：删除文件或目录（<code>-r</code>选项可删除目录及其内容）</li>
+<li><code>cp</code>：复制文件或目录</li>
+<li><code>rmdir</code>：删除空目录</li>
+<li><code>man</code>：查看命令的帮助文档</li>
+<li><code>cat</code>：查看文件内容</li>
+<li><code>tail</code>：查看文件末尾内容</li>
+<li><code>env</code>：查看环境变量</li>
+<li><code>sudo</code>：以超级用户权限运行命令</li>
+<li><code>su</code>：切换用户</li>
+</ul>
+<h2 id="_1">输入输出重定向<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><code>&gt;</code>：输出重定向，将命令的输出保存到文件中</p>
+<blockquote>
+<p><code>echo "Hello, world!" &gt; output.txt</code></p>
+</blockquote>
+</li>
+<li>
+<p><code>&lt;</code>：输入重定向，将文件的内容作为命令的输入</p>
+<blockquote>
+<p><code>cat &lt; input.txt &gt; output.txt</code></p>
+</blockquote>
+</li>
+<li>
+<p><code>&gt;&gt;</code>：追加重定向，将命令的输出追加到文件末尾</p>
+<blockquote>
+<p><code>echo "Hello, world!" &gt;&gt; output.txt</code></p>
+</blockquote>
+</li>
+<li>
+<p><code>|</code>：管道命令，将前一个命令的输出作为后一个命令的输入</p>
+<blockquote>
+<p><code>ls -l | tail -n1</code>：查看当前目录下的文件列表，并只显示最后一行</p>
+</blockquote>
+</li>
+<li>
+<p><code>&gt;</code>重定向错误流：<code>2&gt;</code>表示将错误输出保存到文件中，<code>2&gt;&gt;</code>表示追加错误输出到文件末尾。</p>
+</li>
+</ul>
+<h2 id="_2">变量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>变量定义格式：<code>变量名=值</code>  </li>
+<li><code>$变量名</code>：引用变量的值  </li>
+<li>变量名和值之间不能有空格，也不能使用特殊字符。  </li>
+<li>字符串：用单引号或双引号括起来，如<code>'Hello, world!'</code>或<code>"Hello, world!"</code></li>
+<li>在双引号中变量可以被其值替换，而在单引号中则不会。  </li>
+<li>特殊变量：<ul>
+<li><code>$?</code>：上一条命令的返回值(错误码)</li>
+<li><code>$0</code>表示当前脚本的文件名</li>
+<li><code>$n</code>表示传递给脚本或函数的参数</li>
+<li><code>$1</code>表示第一个参数</li>
+<li><code>$#</code>表示参数个数</li>
+<li><code>$@</code>表示所有参数</li>
+<li><code>$_</code>表示上一个命令的最后一个参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">脚本<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>脚本文件以<code>.sh</code>为扩展名，可使用文本编辑器创建。<br />
+脚本文件以<code>#!/bin/bash</code>开头，表示使用bash解释器执行。<br />
+脚本文件中可以包含多个命令，每个命令占一行。<br />
+脚本文件可通过命令行执行，也可以通过<code>source</code>命令直接执行。<br />
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+mcd<span class="o">(){</span>
+<span class="w">    </span>mkdir<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+</code></pre></div></p>
+<p>保存为<code>mcd.sh</code>，使用命令<code>source mcd.sh</code>即可使用该脚本。  </p>
+<p>脚本输出可以储存在变量中：<br />
+<div class="highlight"><pre><span></span><code><span class="ch">#!/fool=$(pwd)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$fool</span>
+</code></pre></div></p>
+<p>脚本也可以接受参数：<br />
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="nv">$1</span><span class="s2">!&quot;</span>
+</code></pre></div></p>
+<h2 id="shell_2">其他shell工具<a class="headerlink" href="#shell_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>通配符：<code>*</code>匹配任意字符，<code>?</code>匹配单个字符，<code>[]</code>匹配字符集，<code>[!]</code>匹配不在字符集中的字符。</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>ls<span class="w"> </span>*.txt
+ls<span class="w"> </span><span class="o">[</span>a-z<span class="o">]</span>*.txt
+ls<span class="w"> </span>project?.txt
+</code></pre></div>
+- {}:用于扩展列表，如<code>{1..5}</code>表示1到5。</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$i</span>
+<span class="k">done</span>
+</code></pre></div>
+- shellcheck：检查shell脚本语法错误。<br />
+- tldr：查看shell命令的简短用法。
+- find：搜索文件。<br />
+  具体形式：<code>find 路径 -name 匹配模式 -type 类型 -size 大小</code> <br />
+  -exec可以在find的结果上执行命令，如上例删除所有名为<code>.tmp</code>的文件。  </p>
+<p><div class="highlight"><pre><span></span><code><span class="w">  </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.tmp&quot;</span><span class="w"> </span>-exec<span class="w"> </span>rm<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</code></pre></div>
+- grep：搜索文本。
+  具体形式：<code>grep 匹配模式 文件名</code>或者
+  <code>grep -R 匹配模式 路径</code><br />
+  -R选项可以递归搜索子目录。</p>
+<p><div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span>file.txt
+</code></pre></div>
+- rg: 类似于grep，但速度更快,有一些不错的标志可以用。
+- history: 查看历史命令。
+- fzf: 交互式命令行搜索工具。</p>
+<h2 id="_4">命令行环境<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>命令行参数：<ul>
+<li><code>SIGINT</code>：中断信号，按下<code>Ctrl + C</code>触发。</li>
+<li><code>SIGQUIT</code>：退出信号，按下<code>Ctrl + \</code>触发。</li>
+<li><code>SIGKILL</code>：强制退出信号，按下<code>kill -9 pid</code>触发(无法被捕获)。</li>
+<li><code>SIGTSTP</code>：暂停信号，按下<code>Ctrl + Z</code>触发。</li>
+</ul>
+</li>
+<li>任务控制：<ul>
+<li><code>bg</code>：将任务放入后台运行,命令中的 &amp; 后缀可以让命令在直接在后台运行。<br />
+       eg: <code>bg %1</code>将任务1放入后台运行。</li>
+<li><code>fg</code>：将后台任务调至前台运行。</li>
+<li><code>jobs</code>：查看后台任务。</li>
+<li><code>kill</code>：杀死进程。<br />
+    eg: <code>kill -9 %1</code>杀死任务1</li>
+<li><code>nohup</code>：运行命令不挂断，即使终端关闭也不影响命令的执行。<br />
+    eg: <code>nohup command &gt; output.txt 2&gt;&amp;1 &amp;</code>运行命令并将输出保存到文件，并将命令放入后台运行。</li>
+</ul>
+</li>
+</ul>
+<h2 id="tmux">终端复用器<code>tmux</code><a class="headerlink" href="#tmux" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>tmux</code>是一个终端复用器，可以让多个终端会话共存，并在其中切换。</li>
+<li><code>tmux</code>包含三个层次：会话（session）、窗口（window）、面板(pane)。</li>
+<li><code>tmux</code>的命令：<ul>
+<li><code>tmux</code>/<code>tmux new-session</code>/<code>tmux new -t 名称</code>：创建新的会话。</li>
+<li><code>tmux ls</code>：查看当前会话。</li>
+<li><code>tmux a</code>：进入当前会话。</li>
+<li><code>Ctrl+b d</code>: 分离当前会话。</li>
+<li><code>Ctrl+b c</code>: 创建新的窗口。</li>
+<li><code>Ctrl+b n</code>: 切换到下一个窗口。</li>
+<li><code>Ctrl+b p</code>: 切换到上一个窗口。</li>
+<li><code>Ctrl+b \"</code>: 命名当前窗口。</li>
+<li><code>Ctrl+b '</code>: 切换到指定窗口。</li>
+<li><code>Ctrl+b %</code>: 垂直分割窗口。</li>
+<li><code>Ctrl+b "</code>：水平分割窗口。</li>
+<li><code>Ctrl+b arrow</code>: 切换面板。</li>
+<li><code>Ctrl+b space</code>: 更换面板布局。</li>
+<li><code>Ctrl+b z</code>: 使当前面板扩张（再按一次恢复）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="_5">别名<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>alias alias_name="command_to_alias arg1 arg2"</code>：设置别名。<ul>
+<li>eg： <code>alias ll='ls -l'</code>：设置<code>ll</code>命令为<code>ls -l</code>命令的别名。</li>
+</ul>
+</li>
+<li><code>unalias alias_name</code>：取消别名。</li>
+<li><code>alias</code>：查看所有别名。</li>
+<li>别名配置文件：<code>.bashrc</code>或<code>.zshrc</code>文件中设置别名。</li>
+</ul>
+<h2 id="dotflies">Dotflies<a class="headerlink" href="#dotflies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>很多程序的配置都是通过纯文本格式的被称作 点文件 的配置文件来完成的（之所以称为点文件，是因为它们的文件名以 . 开头，例如 ~/.vimrc。也正因为此，它们默认是隐藏文件，ls 并不会显示它们）。</li>
+<li>点文件通常位于用户目录下，例如 ~/.bashrc。</li>
+<li>点文件通常包含环境变量、命令别名、函数定义等。</li>
+<li>点文件通常在 shell 启动时被读取，并在当前 shell 会话中生效。</li>
+<li>许多工具可以通过 点文件 进行配置：<ul>
+<li>bash - ~/.bashrc, ~/.bash_profile</li>
+<li>git - ~/.gitconfig</li>
+<li>vim - ~/.vimrc 和 ~/.vim 目录</li>
+<li>ssh - ~/.ssh/config</li>
+<li>tmux - ~/.tmux.conf </li>
+</ul>
+</li>
+</ul>
+<h2 id="ssh">ssh<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>ssh</code>：远程登录服务器。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "search.highlight"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
